@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Subsection</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body  style="background-image:url('/static/css/2.jpeg');background-size:100%">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost:5000">HOME</a>
+    </div>
+    <ul class="nav navbar-nav">
+      {% for sect in subsection %}
+      		<li><a href="http://localhost:5000/subsection/{{ sect.subsection }}">{{ sect.subsection }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+<div>
+<br><br><br><br><br><br><br>
+<div class="container" >
+					<!--div class="row"-->
+						<center><h1 class="display-1">{{ section }}</h1></center>
+						{% if contents %}
+							{% for c in contents %}
+								<div class="row" style="background-color:rgba(255, 255, 255, 0.5);width:100%">
+	    						<!--div class="col-sm-8"-->
+									<a href="http://localhost:5000/subsec/{{ c.Title }}"><h2><b>{{ c.Title }}</b></h2></a>
+									<br><br>
+									<div class="col-md-4">
+									<img width="220" height="220" src="/static/css/{{ c.image }}">
+									</div>
+									<div class="col-md-8">
+									<p style="padding-right:20px;height:245px;overflow:hidden">{{ c.newscontent }}</p>
+									</div>
+									<br><br><br><br>
+								</div>
+								<br><br><br><br>
+							{%endfor%}
+						{% endif %}						
+					<!--/div-->
+</div>
+</body>
+</html>
